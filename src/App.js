@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import SiteBar from './Component/LogNavbar';
+import INavBar from './Component/INavBar';
+import Auth from './auth/Auth';
+import ClickPage from './Component/ClickPage';
+import Inventory from './Component/Inventory';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+import { Input } from 'reactstrap';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      sessionToken: ''
+    }
+  }
+
+  componentWillMount() {
+    const token = localStorage.getItem('token');
+    if (token && !this.state.sessionToken) {
+      this.setState({sessionToken: token});
+    }
+  }
+
+  setToken = (token) => {
+    localStorage.setItem('token', token);
+    this.setState({ sessionToken: token })
+  }
+
+logout = () => {
+  this.setState({
+    sessionToken: '',
+  })
+  localStorage.clear();
 }
+
+  render() {
+    return(
+      <div>
+        <Router>
+          <Switch>
+        {/* <Route exact path="/"><SiteBar /></Route>
+         */}
+        </Switch>
+        <INavBar />
+        </Router>
+      </div>
+
+    );
+  }
+}
+
 
 export default App;

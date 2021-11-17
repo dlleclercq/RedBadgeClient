@@ -13,6 +13,10 @@
   }
 }
 
+.clickBody{
+  background-color: #282c34;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -25,7 +29,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ff4554;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +39,53 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.logoImg {
+  height: 50px;
+  width: 75px;
+  border-right: 1px white solid;
+}
+
+.boxImg {
+  height: 50px;
+  width: 50px;
+}
+
+.dropButton {
+  position: fixed;
+  width:200px;
+  height: 200px;
+  text-align: center;
+  left: 45%;
+  top: 45%;
+}
+
+.clickLink {
+  position: fixed;
+  left: 40%;
+  font-weight: bold;
+}
+
+.inventLink {
+  position: fixed;
+  left: 60%;
+  font-weight: bold;
+}
+
+.navDropImg {
+  position: fixed;
+  left: 8%;
+}
+
+.cardPlaceholder{
+  position: absolute;
+  top: 300px;
+  right: 1300px;
+  width: 450px;
+  height: 225px;
+}
+
+html{
+  background-color: black;
 }
