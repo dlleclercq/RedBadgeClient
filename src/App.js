@@ -23,7 +23,7 @@ class App extends Component {
   componentWillMount() {
     const token = localStorage.getItem('token');
     if (token && !this.state.sessionToken) {
-      this.setState({sessionToken: token});
+      this.setState({ sessionToken: token });
     }
   }
 
@@ -32,22 +32,21 @@ class App extends Component {
     this.setState({ sessionToken: token })
   }
 
-logout = () => {
-  this.setState({
-    sessionToken: '',
-  })
-  localStorage.clear();
-}
+  logout = () => {
+    this.setState({
+      sessionToken: '',
+    })
+    localStorage.clear();
+  }
 
   render() {
-    return(
+    return (
       <div>
         <Router>
           <Switch>
-        {/* <Route exact path="/"><SiteBar /></Route>
-         */}
-        </Switch>
-        <INavBar />
+            <Route exact path="/"><SiteBar /></Route>
+            <Route exact path="" token={this.props.token}><INavBar/></Route>
+          </Switch>
         </Router>
       </div>
 
